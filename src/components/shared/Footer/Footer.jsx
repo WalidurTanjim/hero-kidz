@@ -5,7 +5,7 @@ const Footer = () => {
           <footer className="w-full text-slate-500">
                {/*      <!-- Main footer --> */}
                <div className="border-t border-slate-200 bg-slate-100 pt-16 pb-12 text-sm">
-                    <div className="container mx-auto px-6">
+                    <div className="container mx-auto w-full px-2 md:px-5 lg:px-8">
                          <div className="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
                               <nav
                                    className="col-span-2 md:col-span-4 lg:col-span-4"
