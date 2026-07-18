@@ -8,7 +8,7 @@ const NavLink = ({ href, children }) => {
      console.log("Pathname:", pathname);
 
      return (
-          <Link href={href} className={`${pathname.startsWith(href) && 'text-warning'} px-3 flex items-center`}>{ children }</Link>
+          <Link href={href} className={`${pathname.startsWith(href) && 'text-warning'} px-3 flex items-center text-sm`}>{ children }</Link>
      )
 }
 
