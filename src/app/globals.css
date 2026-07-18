@@ -6,3 +6,12 @@
      --color-primary: blue;
      --color-secondary: teal;
 } */
+
+
+.defaultH1 {
+     @apply text-5xl text-slate-700 font-medium
+}
+
+.defaultP {
+     @apply text-gray-500
+}

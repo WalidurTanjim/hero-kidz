@@ -1,7 +1,12 @@
 import { Poppins } from "next/font/google";
+import localFont from 'next/font/local';
 import "./globals.css";
 import Footer from "@/components/shared/Footer/Footer";
 import Navbar from "@/components/shared/Navbar/Navbar";
+
+export const senFont = localFont({
+  src: "../fonts/Sen-VariableFont_wght.ttf",
+})
 
 const poppins = Poppins({
   weight: [ "100", "200", "400", "500", "600", "800" ]
