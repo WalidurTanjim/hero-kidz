@@ -1,8 +1,10 @@
 import React from 'react'
-import products from "@/data/toys.json";
 import ProductCard from '@/components/Cards/ProductCard/ProductCard';
+import { getProducts } from '@/actions/server/product';
 
-const Products = () => {
+const Products = async() => {
+     const products = await getProducts();
+
      return (
           <div className='products w-full my-10'>
                <h1 className='text-center text-3xl text-slate-700 font-medium'>Our Products</h1>
