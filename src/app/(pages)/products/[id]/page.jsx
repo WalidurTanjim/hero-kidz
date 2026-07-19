@@ -11,6 +11,7 @@ import {
      ChevronLeftIcon
 } from '@heroicons/react/24/outline';
 import { StarIcon as StarSolidIcon } from '@heroicons/react/24/solid';
+import AddToCartButton from '@/components/Buttons/AddToCartButton/AddToCartButton';
 
 export async function generateMetadata({ params }) {
      const { id } = await params;
@@ -188,10 +189,7 @@ const ProductDetails = async ({ params }) => {
 
                                    {/* Action Buttons */}
                                    <div className="mt-6 flex flex-wrap gap-3">
-                                        <button className="flex-1 min-w-[200px] bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors flex items-center justify-center gap-2">
-                                             <ShoppingCartIcon className="w-5 h-5" />
-                                             Add to Cart
-                                        </button>
+                                        <AddToCartButton product={product} />
                                         <button className="px-6 py-3 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
                                              <HeartIcon className="w-5 h-5" />
                                              Wishlist
