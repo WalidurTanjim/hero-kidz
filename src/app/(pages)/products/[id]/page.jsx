@@ -2,15 +2,71 @@ import { getProductById } from '@/actions/server/product';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
-import { 
-  ShoppingCartIcon, 
-  HeartIcon, 
-  ShareIcon, 
-  StarIcon,
-  CheckCircleIcon,
-  ChevronLeftIcon
+import {
+     ShoppingCartIcon,
+     HeartIcon,
+     ShareIcon,
+     StarIcon,
+     CheckCircleIcon,
+     ChevronLeftIcon
 } from '@heroicons/react/24/outline';
 import { StarIcon as StarSolidIcon } from '@heroicons/react/24/solid';
+
+export async function generateMetadata({ params }) {
+     const { id } = await params;
+
+     const product = await getProductById(id);
+
+     if (!product) {
+          return {
+               title: "Product Not Found",
+               description: "This product does not exist.",
+          };
+     }
+
+     const discountedPrice =
+          product.price - (product.price * (product.discount || 0)) / 100;
+
+     return {
+          title: `${product.title} | Your Store`,
+          description:
+               product.description?.slice(0, 150) ||
+               `Buy ${product.title} at best price.`,
+
+          openGraph: {
+               title: product.title,
+               description:
+                    product.description?.slice(0, 150) ||
+                    `Buy ${product.title} at best price.`,
+               images: [
+                    {
+                         url: product.image,
+                         width: 800,
+                         height: 600,
+                         alt: product.title,
+                    },
+               ],
+          },
+
+          twitter: {
+               card: "summary_large_image",
+               title: product.title,
+               description:
+                    product.description?.slice(0, 150) ||
+                    `Buy ${product.title} at best price.`,
+               images: [product.image],
+          },
+
+          alternates: {
+               canonical: `/products/${id}`,
+          },
+
+          other: {
+               price: `৳${discountedPrice.toFixed(2)}`,
+               rating: product.ratings,
+          },
+     };
+}
 
 const ProductDetails = async ({ params }) => {
      const { id } = await params;
