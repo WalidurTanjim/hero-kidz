@@ -38,7 +38,7 @@ const Signin = () => {
                                         </MenuItem>
                                    </MenuItems>
                               </Menu> :
-                              <Link href={`/signin`}><button className='btn btn-outline btn-warning btn-sm ms-2'>Sign In</button></Link>
+                              <Link href={`/auth/signin`}><button className='btn btn-outline btn-warning btn-sm ms-2'>Sign In</button></Link>
                }
           </>
      )
