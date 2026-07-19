@@ -4,6 +4,7 @@ import { getProducts } from '@/actions/server/product';
 
 const Products = async() => {
      const products = await getProducts();
+     // console.log(products)
 
      return (
           <div className='products w-full my-10'>
@@ -11,7 +12,7 @@ const Products = async() => {
 
                <div className='grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 mt-10'>
                     {
-                         products.map((product, idx) => <ProductCard key={idx} product={product} />)
+                         products.map((product, idx) => <ProductCard key={product._id} product={product} />)
                     }
                </div>
           </div>

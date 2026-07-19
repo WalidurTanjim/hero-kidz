@@ -4,7 +4,11 @@ import { ObjectId } from "mongodb";
 
 export const getProducts = async() => {
      const result = await dbConnect(collections.PRODUCTS).find().toArray();
-     return result || [];
+     const products = result.map(product => ({
+          ...product, 
+          _id: product._id.toString()
+     }))
+     return products || [];
 }
 
 export const getProductById = async(id) => {

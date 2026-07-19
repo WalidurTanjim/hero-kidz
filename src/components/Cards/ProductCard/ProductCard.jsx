@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 const ProductCard = ({ product }) => {
      const {
+          _id,
           title,
           price,
           image,
@@ -13,6 +14,7 @@ const ProductCard = ({ product }) => {
           description,
           inStock
      } = product;
+     // console.log(product)
 
      const renderStars = () => {
           const fullStars = Math.floor(rating);
@@ -61,7 +63,7 @@ const ProductCard = ({ product }) => {
                          >
                               <HeartIcon className="w-4 h-4 text-gray-600" />
                          </button>
-                         <Link href={`/products/${title}`}><button
+                         <Link href={`/products/${_id}`}><button
                               className="p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors"
                               aria-label="Quick view"
                          >
